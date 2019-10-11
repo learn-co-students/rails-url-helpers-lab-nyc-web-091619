@@ -1,4 +1,7 @@
-# This file is used by Rack-based servers to start the application.
+Rails.application.routes.draw do
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-require ::File.expand_path('../config/environment', __FILE__)
-run Rails.application
+    resources :students, only: [:index, :show]
+    get '/students/:id/activate', to: 'students#edit', as: 'activate_student'
+    
+  end
