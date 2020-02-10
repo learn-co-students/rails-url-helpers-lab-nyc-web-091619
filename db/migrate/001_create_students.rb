@@ -3,8 +3,17 @@ class CreateStudents < ActiveRecord::Migration
     create_table :students do |t|
       t.string :first_name
       t.string :last_name
+      t.boolean :active, default: false
 
       t.timestamps null: false
     end
+
+    # change_column_default(:students, :active, false)
   end
 end
+
+# change_column_default(
+#   :students,
+#   :active,
+#   false
+# )
